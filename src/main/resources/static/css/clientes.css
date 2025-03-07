@@ -1,0 +1,46 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffe4e1; /* Rosa pastel */
+    color: #733d3d; /* Un tono marrón suave para contraste */
+    text-align: center;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    color: #d88ca4; /* Rosa pastel más oscuro */
+    font-size: 2em;
+}
+
+table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background-color: #fff0f5; /* Lavanda rosa */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+thead {
+    background-color: #f4a6c0; /* Rosa pastel vibrante */
+    color: white;
+}
+
+thead th {
+    padding: 15px;
+    font-size: 1.2em;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #ffdee3; /* Un tono rosa más claro */
+}
+
+tbody td {
+    padding: 12px;
+    border-bottom: 1px solid #f4a6c0;
+}
+
+tbody tr:hover {
+    background-color: #ffc0cb; /* Rosa más intenso */
+}

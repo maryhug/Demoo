@@ -5,8 +5,5 @@ import java.util.List;
 import com.example.demoo.Modelos.Entities.Cliente;
 
 public interface IClienteDAO {
-
         public List<Cliente> findAll();
-        
-    
 }
