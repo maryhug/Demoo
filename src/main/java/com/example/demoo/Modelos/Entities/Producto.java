@@ -7,10 +7,12 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
 
 @Entity
+@Table(name = "productos") // Asegura que el nombre de la tabla sea correcto
 public class Producto {
         
     @Id
@@ -19,13 +21,13 @@ public class Producto {
 
     private String Nombre;
     private int Cantidad;
-    private double Precio_venta;
+    private Long Precio_venta;
 
     @Column(name = "fecha")
     @Temporal(TemporalType.DATE)
     private Date Fecha;
-    
-    public Producto(Long id, String nombre, int cantidad, double precio_venta, Date fecha) {
+
+    public Producto(Long id, String nombre, int cantidad, Long precio_venta, Date fecha) {
         Id = id;
         Nombre = nombre;
         Cantidad = cantidad;
@@ -65,7 +67,7 @@ public class Producto {
         return Precio_venta;
     }
 
-    public void setPrecio_venta(double precio_venta) {
+    public void setPrecio_venta(Long precio_venta) {
         Precio_venta = precio_venta;
     }
 

@@ -19,12 +19,12 @@
             </tr>
         </thead>
         <tbody>
-            <tr th:each="producto: ${Productos}">
-                <td th:text="${producto.id}"></td>
-                <td th:text="${producto.nombre}"></td>
-                <td th:text="${producto.cantidad}"></td>
-                <td th:text="${producto.precio}"></td>
-                <td th:text="${producto.fecha}"></td>
+            <tr th:each="producto: ${productos}">	
+                <td th:text="${producto.Id}"></td>
+                <td th:text="${producto.Nombre}"></td>
+                <td th:text="${producto.Cantidad}"></td>
+                <td th:text="${producto.Precio_venta}"></td>
+                <td th:text="${producto.Fecha}"></td>
             </tr>
         </tbody>
     </table>
