@@ -12,7 +12,6 @@ import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
 
 @Entity
-//@Table(name="clientes")
 public class Cliente implements Serializable {
 
     @Id
