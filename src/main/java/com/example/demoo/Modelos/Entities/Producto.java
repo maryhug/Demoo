@@ -1,82 +1,74 @@
 package com.example.demoo.Modelos.Entities;
 
+import java.time.LocalDate;
 import java.util.Date;
-
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import jakarta.persistence.Temporal;
-import jakarta.persistence.TemporalType;
+import jakarta.persistence.*;
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
-@Table(name = "productos") // Asegura que el nombre de la tabla sea correcto
+@Table(name = "productos")
 public class Producto {
-        
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long Id;
+    private Long id;
 
-    private String Nombre;
-    private int Cantidad;
-    private Long Precio_venta;
+    private String nombre;
+    private int cantidad;
+    private Double precioVenta; // Cambio de Long a Double
 
     @Column(name = "fecha")
     @Temporal(TemporalType.DATE)
-    private Date Fecha;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate fecha;
 
-    public Producto(Long id, String nombre, int cantidad, Long precio_venta, Date fecha) {
-        Id = id;
-        Nombre = nombre;
-        Cantidad = cantidad;
-        Precio_venta = precio_venta;
-        Fecha = fecha;
+    public Producto(Long id, String nombre, int cantidad, Double precioVenta, LocalDate fecha) { // Cambio de Long a Double
+        this.id = id;
+        this.nombre = nombre;
+        this.cantidad = cantidad;
+        this.precioVenta = precioVenta;
+        this.fecha = fecha;
     }
-    
-    public Producto(){
-        
-    }
+
+    public Producto() { }
 
     public Long getId() {
-        return Id;
+        return id;
     }
 
     public void setId(Long id) {
-        Id = id;
+        this.id = id;
     }
 
     public String getNombre() {
-        return Nombre;
+        return nombre;
     }
 
     public void setNombre(String nombre) {
-        Nombre = nombre;
+        this.nombre = nombre;
     }
 
     public int getCantidad() {
-        return Cantidad;
+        return cantidad;
     }
 
     public void setCantidad(int cantidad) {
-        Cantidad = cantidad;
+        this.cantidad = cantidad;
     }
 
-    public double getPrecio_venta() {
-        return Precio_venta;
+    public Double getPrecioVenta() { // Cambio del tipo de retorno
+        return (precioVenta != null) ? precioVenta : 0.0; // Cambio 0L a 0.0
     }
 
-    public void setPrecio_venta(Long precio_venta) {
-        Precio_venta = precio_venta;
+    public void setPrecioVenta(Double precioVenta) { // Cambio de Long a Double
+        this.precioVenta = precioVenta;
     }
 
-    public Date getFecha() {
-        return Fecha;
+    public LocalDate getFecha() {
+        return fecha;
     }
 
-    public void setFecha(Date fecha) {
-        Fecha = fecha;
+    public void setFecha(LocalDate fecha) {
+        this.fecha = fecha;
     }
-
 }
