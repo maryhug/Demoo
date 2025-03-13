@@ -3,6 +3,8 @@ package com.example.demoo.Modelos.Entities;
 import java.io.Serializable;
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -21,7 +23,8 @@ public class Cliente implements Serializable {
     private String Nombre, Apellido, Email;
 
     @Column(name = "create_at")
-    @Temporal(TemporalType.DATE)
+    @Temporal(TemporalType.DATE) // Indica que solo se guarda la fecha
+    @DateTimeFormat(pattern = "yyyy-MM-dd") // Para convertir la fecha correctamente
     private Date CreateAt;
 
     public Cliente(Long id, String nombre, String apellido, String email, Date createAt) {

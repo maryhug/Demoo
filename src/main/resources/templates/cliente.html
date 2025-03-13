@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${titulo}">Lista de Clientes</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-4">
+    <h1 th:text="${titulo}" class="mb-4">Lista de Clientes</h1>
+
+    <a th:href="@{/cliente/agregar}" class="btn btn-primary mb-3">Agregar Cliente</a>
+
+    <table class="table table-striped">
+        <thead class="thead-dark">
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Email</th>
+            <th>Fecha</th>
+            <th>Acciones</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="cliente : ${Clientes}">
+            <td th:text="${cliente.Id}">ID</td>
+            <td th:text="${cliente.Nombre}">Nombre</td>
+            <td th:text="${cliente.Apellido}">Apellido</td>
+            <td th:text="${cliente.Email}">Email</td>
+            <td th:text="${#temporals.format(producto.fecha, 'dd/MM/yyyy')}">Fecha</td>
+            <td>
+                <a th:href="@{/cliente/editar/{id}(id=${cliente.id})}" class="btn btn-warning btn-sm">Editar</a>
+                <a th:href="@{/cliente/eliminar/{id}(id=${cliente.id})}" class="btn btn-danger btn-sm"
+                   onclick="return confirm('¿Estás seguro de eliminar este Cliente?')">Eliminar</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
