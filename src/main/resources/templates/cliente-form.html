@@ -2,35 +2,34 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
-  <title>Formulario de Clientes</title>
+  <title>Formulario de Cliente</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
 <div class="container mt-4">
-  <title th:text="${clientes != null and clientes.Id > 0 ? 'Editar Cliente' : 'Nuevo Cliente'}">Formulario Cliente</title>
+  <h1 th:text="${cliente.id > 0 ? 'Editar Cliente' : 'Nuevo Cliente'}" class="mb-4">Formulario de Cliente</h1>
 
   <form th:action="@{/cliente/guardar}" th:object="${cliente}" method="post">
-    
-    <input type="hidden" th:field="*{Id}">
+    <input type="hidden" th:field="*{id}">
 
     <div class="form-group">
       <label for="nombre">Nombre:</label>
-      <input type="text" th:field="*{Nombre}" id="nombre" class="form-control" required>
+      <input type="text" th:field="*{nombre}" id="nombre" class="form-control" required>
     </div>
 
-   <div class="form-group">
+    <div class="form-group">
       <label for="apellido">Apellido:</label>
-      <input type="text" th:field="*{Apellido}" id="apellido" class="form-control" required>
+      <input type="text" th:field="*{apellido}" id="apellido" class="form-control" required>
     </div>
 
     <div class="form-group">
       <label for="email">Email:</label>
-      <input type="email" th:field="*{Email}" id="email" class="form-control" required>
+      <input type="email" th:field="*{email}" id="email" class="form-control" required>
     </div>
 
     <div class="form-group">
-      <label for="createAt">Fecha de creación:</label>
-    <input type="date" id="createAt" name="createAt" required>
+      <label for="fecha">Fecha de Registro:</label>
+      <input type="date" id="fecha" class="form-control" th:field="*{fecha}" />
     </div>
 
     <div class="form-group">
@@ -39,9 +38,5 @@
     </div>
   </form>
 </div>
-
-<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

@@ -3,15 +3,10 @@ package com.example.demoo.Controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
-import com.example.demoo.Modelos.Entities.Cliente;
 import com.example.demoo.Services.ClienteService;
-
+import com.example.demoo.Modelos.Entities.Cliente;
 
 @Controller
 @RequestMapping("/cliente")
@@ -39,18 +34,9 @@ public class ClienteControlador {
         return "redirect:/cliente/listar";
     }
 
-    @GetMapping("/editar/{id}")
-    public String editarCliente(@PathVariable Long id, Model model) {
-        model.addAttribute("cliente", clienteService.obtenerCliente(id));
-        return "cliente-form";
-    }
-
     @GetMapping("/eliminar/{id}")
     public String eliminarCliente(@PathVariable Long id) {
         clienteService.eliminarCliente(id);
         return "redirect:/cliente/listar";
     }
-
-    
-    
 }

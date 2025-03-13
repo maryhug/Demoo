@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Página Principal</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+
+<div th:replace="fragments/navbar :: body"></div>
+
+<div class="container text-center mt-5">
+    <h1>Bienvenido al Sistema de Gestión</h1>
+    <p>Seleccione una opción para continuar:</p>
+
+    <div class="row justify-content-center">
+        <div class="col-md-4">
+            <a th:href="@{/cliente/listar}" class="btn btn-primary btn-lg btn-block">Gestionar Clientes</a>
+        </div>
+        <div class="col-md-4">
+            <a th:href="@{/producto/listar}" class="btn btn-success btn-lg btn-block">Gestionar Productos</a>
+        </div>
+    </div>
+</div>
+</body>
+</html>
