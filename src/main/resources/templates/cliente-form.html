@@ -6,6 +6,10 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
+
+  <div th:replace="fragments/navbar :: body"></div>
+
+
 <div class="container mt-4">
   <h1 th:text="${cliente.id > 0 ? 'Editar Cliente' : 'Nuevo Cliente'}" class="mb-4">Formulario de Cliente</h1>
 
